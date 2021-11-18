@@ -1,0 +1,147 @@
+.navg {
+  background-color: #eff6ff;
+  padding-left: 6rem;
+  display: flex;
+  align-items: center;
+}
+.header-cnt {
+  text-decoration: none;
+  padding-right: 1rem;
+  color: rgb(0, 134, 187);
+}
+.links-container {
+  margin-left: 65rem;
+}
+.signup-cmp {
+  margin: auto;
+  text-align: center;
+  align-items: middle;
+  border: 1px solid #bfdbfe;
+  height: auto;
+  width: 20rem;
+  border-radius: 10px;
+  background-color: #eff6ff;
+}
+.auth-container {
+  margin-top: 7rem;
+}
+.input-style {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  height: 25px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding-left: 13px;
+}
+.para-style {
+  color: gray;
+  opacity: 100%;
+}
+.signup-btn {
+  background-color: #3b82f6;
+  border-radius: 5px;
+  font-size: 17px;
+  cursor: pointer;
+}
+.style-login {
+  margin: auto;
+  text-align: center;
+  align-items: middle;
+  border: 1px solid #bfdbfe;
+  height: auto;
+  width: 20rem;
+  border-radius: 10px;
+  background-color: #eff6ff;
+  margin-top: 8rem;
+}
+.input-login {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  height: 25px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding-left: 13px;
+}
+.login-btn {
+  background-color: #3b82f6;
+  border-radius: 5px;
+  font-size: 17px;
+  cursor: pointer;
+}
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 17rem;
+  margin-top: 5rem;
+}
+.post-btn {
+  background-color: #3b82f6;
+  border-radius: 5px;
+  font-size: 17px;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #3b82f6;
+  color: #eff6ff;
+  font-weight: 500;
+  font-size: 20px;
+  opacity: 0.9;
+  height: 50px;
+  width: 150px;
+  line-height: 50px;
+}
+.text-container {
+  resize: none;
+  width: 20rem;
+  height: 5rem;
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+}
+.center {
+  display: block;
+  margin: 0 auto;
+}
+.text-center {
+  text-align: center;
+  transform: translate(140px, -128px);
+}
+.close-btn {
+  justify-content: center;
+  width: 2rem;
+  transform: translate(147px, -150px);
+  cursor: pointer;
+  background-color: #f87171;
+  opacity: 0.9;
+  border-radius: 3px;
+  border: 1px solid #f87171;
+  color: #eff6ff;
+}
+.file-component {
+  transform: translate(-35px, 10px);
+  cursor: pointer;
+}
+.post-component {
+  transform: translate(130px, 10px);
+  cursor: pointer;
+  background-color: #f87171;
+  opacity: 0.9;
+  border-radius: 3px;
+  border: 1px solid #f87171;
+  color: #eff6ff;
+  width: 5rem;
+  height: 2rem;
+}
+.add-component {
+  transform: translate(-220px, -135px);
+  height: 50px;
+  width: 80px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #f87171;
+  opacity: 0.9;
+  border-radius: 3px;
+  border: 1px solid #f87171;
+  color: #eff6ff;
+}
