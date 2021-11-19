@@ -6,13 +6,14 @@ import { Login } from "./features/auth/pages/LoginPage";
 import { Home } from "./common/components/Home";
 import { PrivateRoute } from "./common/components/PrivateRoute";
 import { Profile } from "./common/components/Profile";
-
 import "./App.css";
+import { useSelector } from "react-redux";
 
 function App() {
+  const loggedIn = useSelector((state) => state.auth.isUserLogedIn);
   return (
     <div className="App">
-      <Header />
+      {loggedIn && <Header />}
       <Routes>
         <Route
           path="/"

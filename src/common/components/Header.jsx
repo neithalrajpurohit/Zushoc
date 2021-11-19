@@ -12,6 +12,7 @@ export const Header=()=>{
                     <Link className="header-cnt" to="/">Home</Link>
                     <Link className="header-cnt" to ="/profile">Profile</Link>
                     <button className="header-cnt" onClick={()=>{ dispatch(logOutUser()) ; navigate("/login")} }>Logout</button>
+                    
                 </div>     
             </nav>
        </div>
