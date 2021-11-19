@@ -77,7 +77,26 @@ export const authSlice = createSlice({
     errorMessage: "",
   },
 
-  reducers: {},
+  reducers: {
+    logOutUser(state) {
+      localStorage.removeItem("login");
+      state.data = {
+        _id: "",
+        name: "",
+        email: "",
+        username: "",
+        bio: "",
+        profileURL: "",
+        followingList: [],
+        followersList: [],
+      };
+      state.token = "";
+      state.isUserLogedIn = false;
+      state.userLoading = false;
+      state.isError = false;
+      state.errorMessage = "";
+    },
+  },
 
   extraReducers: {
     [signupUser.pending]: (state, action) => {
@@ -114,4 +133,6 @@ export const authSlice = createSlice({
     },
   },
 });
+export const { logOutUser } = authSlice.actions;
+
 export default authSlice.reducer;
