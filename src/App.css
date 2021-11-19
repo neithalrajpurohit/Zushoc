@@ -90,6 +90,7 @@
   height: 50px;
   width: 150px;
   line-height: 50px;
+  transform: translate(190px, 350px);
 }
 .text-container {
   resize: none;
