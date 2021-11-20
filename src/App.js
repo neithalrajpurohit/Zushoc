@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Header } from "./common/components/Header";
 import { Signup } from "./features/auth/pages/SignUpPage";
 import { Login } from "./features/auth/pages/LoginPage";
-import { Home } from "./common/components/Home";
+import { Home } from "./features/posts/pages/feed/Home";
 import { PrivateRoute } from "./common/components/PrivateRoute";
 import { Profile } from "./features/auth/pages/profile/Profile";
 import "./App.css";

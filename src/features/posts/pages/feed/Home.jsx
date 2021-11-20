@@ -1,8 +1,9 @@
 import { useState } from "react";
-import {Post} from "./Post";
+import {Post} from "../../../../common/components/Post";
 export const Home = () =>{
     const [createPost,setCreatePost]=useState(false);
     const [showPost,setShowPost]=useState(true);
+    
     return(
         <div>
             {!createPost && (<div className="btn-container">

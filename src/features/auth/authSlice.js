@@ -49,7 +49,6 @@ export const loginUser = createAsyncThunk(
           JSON.stringify({ token: response.data.token, isUserLogedIn: true })
         );
       }
-      console.log(response.data);
       return response.data;
     } catch (err) {
       console.log({ err });
@@ -122,7 +121,6 @@ export const authSlice = createSlice({
     [loginUser.fulfilled]: (state, action) => {
       state.userLoading = false;
       state.isUserLogedIn = true;
-      console.log(action.payload.userDetails);
       state.data = action.payload.userDetails;
       state.token = action.payload.token;
       state.isError = false;

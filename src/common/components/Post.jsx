@@ -1,9 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
+import { postTweet } from "../../features/posts/postSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 export const Post = ({setCreatePost,setShowPost}) =>{
-    const [charCount,setCharCount] = useState(0);
+    const dispatch = useDispatch();
     const [imageURL,setImageURL]   = useState("");
     const [image,setImage] = useState("");
+    const [content,setContent] = useState("");
+    const userId = useSelector((state)=>state.auth.data._id);
+    const token =useSelector((state)=>state.auth.token);
 
     const uploadHandler = async () =>{
         console.log("Called")
@@ -22,24 +28,31 @@ export const Post = ({setCreatePost,setShowPost}) =>{
             console.log({err});
         }
     }
+
+    const postOnClick = () =>{
+        if( imageURL !== "" | undefined | null){
+            dispatch(postTweet({content, userId, token, imageURL}));
+            setCreatePost(false);
+            setShowPost(true);
+        }
+    }
     return (
         <div style={{marginTop:"7rem"}}>
             <div>  
-                <textarea className="text-container" type="text" placeholder="Whats cooking ?" onChange={(e)=>setCharCount(e.target.value)}></textarea>
+                <textarea className="text-container" type="text" placeholder="Whats cooking ?" onChange={(e)=>setContent(e.target.value)}></textarea>
             </div>
             <div className="btn-component">
                 <input className="center file-component" type ="file" onChange={(e)=>setImage(e.target.files[0])}/>
                 <button className="center close-btn" 
                 onClick={()=>{
                     setCreatePost(false);
-                    setShowPost(true)}} 
+                    setShowPost(true)}}
                 >X</button>
-                <button className="center post-component" >Post</button>
+                <button className="center post-component" onClick={()=>postOnClick()}  >Post</button>
                 <button className="center add-component" onClick={()=>uploadHandler()}>+</button>
                 <img src = {imageURL} alt ="images"/>
-                <p className ="text-center">{charCount.length}/100 </p>
+                <p className ="text-center">{content?.length}/100 </p>
             </div>
-               <p></p>
         </div>
     )
 }
