@@ -5,7 +5,7 @@ import { Signup } from "./features/auth/pages/SignUpPage";
 import { Login } from "./features/auth/pages/LoginPage";
 import { Home } from "./common/components/Home";
 import { PrivateRoute } from "./common/components/PrivateRoute";
-import { Profile } from "./common/components/Profile";
+import { Profile } from "./features/auth/pages/profile/Profile";
 import "./App.css";
 import { useSelector } from "react-redux";
 
