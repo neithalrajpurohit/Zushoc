@@ -1,12 +1,12 @@
 .navg {
   background-color: #eff6ff;
-  padding-left: 6rem;
+  padding-left: 1rem;
   display: flex;
   align-items: center;
 }
 .header-cnt {
   text-decoration: none;
-  padding-right: 1rem;
+  padding-right: 3px;
   color: rgb(0, 134, 187);
 }
 .links-container {

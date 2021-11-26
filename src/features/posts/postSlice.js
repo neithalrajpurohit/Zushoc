@@ -27,6 +27,69 @@ export const postTweet = createAsyncThunk(
   }
 );
 
+export const getAllUserCreatedPosts = createAsyncThunk(
+  "post/getAllUserCreatedPosts",
+  async ({ token, username }) => {
+    try {
+      const response = await axios.post(
+        `https://zushoc-backend.neithalrajpuroh.repl.co/post/${username}`,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      return response.data;
+    } catch (err) {
+      console.log({ err });
+    }
+  }
+);
+export const getFeed = createAsyncThunk("post/getFeed", async ({ token }) => {
+  try {
+    const response = await axios.post(
+      "https://zushoc-backend.neithalrajpuroh.repl.co/post",
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    return response.data;
+  } catch (err) {
+    console.log({ err });
+  }
+});
+
+export const likePost = createAsyncThunk(
+  "post/likePost",
+  async ({ postId, userId }) => {
+    try {
+      let response = await axios.post(
+        `https://zushoc-backend.neithalrajpuroh.repl.co/post/${postId}`,
+        { userId }
+      );
+      return response.data.post;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+export const unlikePost = createAsyncThunk(
+  "post/unlikePost",
+  async ({ postId, userId }) => {
+    try {
+      let response = await axios.post(
+        `https://zushoc-backend.neithalrajpuroh.repl.co/post/${postId}`,
+        { userId }
+      );
+      return response.data.post;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+
 export const postSlice = createSlice({
   name: "post",
   initialState: {
@@ -47,7 +110,22 @@ export const postSlice = createSlice({
     },
     [postTweet.fulfilled]: (state, action) => {
       state.postLoading = false;
-      state.feedPost = [...state.feedPost, action.payLoad.post];
+      //   state.feedPost = [...state.feedPost, action.payLoad.post];
+    },
+    [postTweet.rejected]: (state, action) => {
+      state.isError = true;
+      state.errorMessage = "post unsuccessfull";
+    },
+    [getAllUserCreatedPosts.pending]: (state, action) => {
+      state.postLoading = true;
+    },
+    [getAllUserCreatedPosts.fulfilled]: (state, action) => {
+      state.postLoading = false;
+      state.userPostList = action.payload;
+    },
+    [getAllUserCreatedPosts.rejected]: (state, action) => {
+      state.isError = true;
+      state.errorMessage = "Created post was unsuccessfull";
     },
   },
 });

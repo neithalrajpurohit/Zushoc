@@ -55,7 +55,83 @@ export const loginUser = createAsyncThunk(
     }
   }
 );
+export const getFollowSuggestions = createAsyncThunk(
+  "auth/getAll",
+  async ({ token }) => {
+    try {
+      const response = await axios.get(
+        "https://zushoc-backend.neithalrajpuroh.repl.co/auth/getAll",
+        {
+          header: {
+            authorization: token,
+          },
+        }
+      );
 
+      return response.data.user;
+    } catch (err) {
+      console.log({ err });
+    }
+  }
+);
+
+export const getUserData = createAsyncThunk(
+  "auth/username",
+  async (username, token) => {
+    try {
+      const response = await axios.get(
+        `https://zushoc-backend.neithalrajpuroh.repl.co/auth/${username}`,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+
+      return response.data.userDetails;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+
+export const addFollowUser = createAsyncThunk(
+  "auth/new",
+  async ({ followUserId, userId }) => {
+    try {
+      const res = await axios.post(
+        "https://zushoc-backend.neithalrajpuroh.repl.co/auth/follow/new",
+        {
+          followUserId,
+          userId,
+        }
+      );
+
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
+
+export const removeFollowing = createAsyncThunk(
+  "auth/unfollow",
+  async ({ followUserId, userId }) => {
+    try {
+      const res = await axios.post(
+        "https://zushoc-backend.neithalrajpuroh.repl.co/auth/follow/remove",
+        {
+          followUserId,
+          userId,
+        }
+      );
+
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+);
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -69,11 +145,13 @@ export const authSlice = createSlice({
       followingList: [],
       followersList: [],
     },
+    followUser: "",
     token: "",
     isUserLogedIn: false,
     isError: false,
     userCreatedPost: [],
     userLoading: false,
+    followUsers: [],
     errorMessage: "",
   },
 
@@ -112,7 +190,7 @@ export const authSlice = createSlice({
     },
     [signupUser.rejected]: (state, action) => {
       state.userLoading = true;
-      state.isError = false;
+      state.isError = true;
       state.errorMessage = action.error.message;
     },
     [loginUser.pending]: (state, action) => {
@@ -121,13 +199,62 @@ export const authSlice = createSlice({
     [loginUser.fulfilled]: (state, action) => {
       state.userLoading = false;
       state.isUserLogedIn = true;
-      state.data = action.payload.userDetails;
+
+      state.data = action.payload?.user;
+
       state.token = action.payload.token;
       state.isError = false;
       state.errorMessage = "";
     },
     [loginUser.rejected]: (state, action) => {
       state.userLoading = false;
+      state.isError = true;
+      state.errorMessage = action.error.message;
+    },
+    [getFollowSuggestions.pending]: (state, action) => {
+      state.userLoading = true;
+    },
+    [getFollowSuggestions.fulfilled]: (state, action) => {
+      state.isError = false;
+      state.userLoading = false;
+      state.followUsers = action.payload;
+    },
+    [getFollowSuggestions.rejected]: (state, action) => {
+      state.isError = true;
+      state.errorMessage = action.error.message;
+    },
+    [getUserData.pending]: (state, action) => {
+      state.userLoading = true;
+    },
+    [getUserData.fulfilled]: (state, action) => {
+      state.userLoading = false;
+      state.isUserLoggedIn = true;
+      state.followUser = action.payload;
+    },
+    [getUserData.rejected]: (state, action) => {
+      state.isError = true;
+      state.errorMessage = action.error.message;
+    },
+    [addFollowUser.pending]: (state, action) => {
+      state.userLoading = true;
+    },
+    [addFollowUser.fulfilled]: (state, action) => {
+      state.userLoading = false;
+
+      state.followUser = action.payload?.followUser;
+    },
+    [addFollowUser.rejected]: (state, action) => {
+      state.isError = true;
+      state.errorMessage = action.error.message;
+    },
+    [removeFollowing.pending]: (state, action) => {
+      state.userLoading = true;
+    },
+    [removeFollowing.fulfilled]: (state, action) => {
+      state.userLoading = false;
+      state.followUser = action.payload?.followUser;
+    },
+    [removeFollowing.rejected]: (state, action) => {
       state.isError = true;
       state.errorMessage = action.error.message;
     },

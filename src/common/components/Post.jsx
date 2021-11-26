@@ -12,9 +12,8 @@ export const Post = ({setCreatePost,setShowPost}) =>{
     const token =useSelector((state)=>state.auth.token);
 
     const uploadHandler = async () =>{
-        console.log("Called")
         if(!image){
-           console.log("Image is required");
+            console.log("Image is required");
         }
         const data = new FormData();
         data.append("file",image);
@@ -51,7 +50,7 @@ export const Post = ({setCreatePost,setShowPost}) =>{
                 <button className="center post-component" onClick={()=>postOnClick()}  >Post</button>
                 <button className="center add-component" onClick={()=>uploadHandler()}>+</button>
                 <img src = {imageURL} alt ="images"/>
-                <p className ="text-center">{content?.length}/100 </p>
+                <p className ="text-center">{content.length}/100 </p>
             </div>
         </div>
     )

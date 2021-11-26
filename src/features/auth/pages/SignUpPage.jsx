@@ -21,7 +21,6 @@ export const Signup=()=>{
         const username = e.currentTarget[1].value.trim();
         const email = e.currentTarget[2].value.trim();
         const password = e.currentTarget[3].value.trim();
-        console.log(name,username,email,password);
         if ( name === "" | username === ""| email === "" | password === "" ){
             setError("Please enter valid details");
         }

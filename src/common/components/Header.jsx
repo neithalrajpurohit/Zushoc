@@ -11,6 +11,8 @@ export const Header=()=>{
                 <div className="links-container">
                     <Link className="header-cnt" to="/">Home</Link>
                     <Link className="header-cnt" to ="/profile">Profile</Link>
+                    <Link className="header-cnt" to ="/followsuggestions">FollowSuggestions</Link>
+
                     <button className="header-cnt" onClick={()=>{ dispatch(logOutUser()) ; navigate("/login")} }>Logout</button>
                     
                 </div>     
