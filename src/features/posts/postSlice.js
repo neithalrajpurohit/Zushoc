@@ -47,15 +47,16 @@ export const getAllUserCreatedPosts = createAsyncThunk(
 );
 export const getFeed = createAsyncThunk("post/getFeed", async ({ token }) => {
   try {
-    const response = await axios.post(
-      "https://zushoc-backend.neithalrajpuroh.repl.co/post",
+    const response = await axios.get(
+      "https://zushoc-backend.neithalrajpuroh.repl.co/feed",
       {
         headers: {
           authorization: token,
         },
       }
     );
-    return response.data;
+
+    return response.data.res;
   } catch (err) {
     console.log({ err });
   }
@@ -126,6 +127,18 @@ export const postSlice = createSlice({
     [getAllUserCreatedPosts.rejected]: (state, action) => {
       state.isError = true;
       state.errorMessage = "Created post was unsuccessfull";
+    },
+    [getFeed.pending]: (state, action) => {
+      state.postLoading = true;
+    },
+    [getFeed.fulfilled]: (state, action) => {
+      state.postLoading = false;
+
+      state.feedPost = action.payload;
+    },
+    [getFeed.rejected]: (state, action) => {
+      state.isError = true;
+      state.errorMessage = "cant get posts";
     },
   },
 });
