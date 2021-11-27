@@ -201,8 +201,8 @@ export const authSlice = createSlice({
       state.isUserLogedIn = true;
 
       state.data = action.payload?.user;
-
       state.token = action.payload.token;
+
       state.isError = false;
       state.errorMessage = "";
     },

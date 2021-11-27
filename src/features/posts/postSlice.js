@@ -31,15 +31,16 @@ export const getAllUserCreatedPosts = createAsyncThunk(
   "post/getAllUserCreatedPosts",
   async ({ token, username }) => {
     try {
-      const response = await axios.post(
-        `https://zushoc-backend.neithalrajpuroh.repl.co/post/${username}`,
+      const response = await axios.get(
+        `https://zushoc-backend.neithalrajpuroh.repl.co/post/userpost/${username}`,
         {
           headers: {
             authorization: token,
           },
         }
       );
-      return response.data;
+
+      return response.data.post;
     } catch (err) {
       console.log({ err });
     }
@@ -122,6 +123,7 @@ export const postSlice = createSlice({
     },
     [getAllUserCreatedPosts.fulfilled]: (state, action) => {
       state.postLoading = false;
+
       state.userPostList = action.payload;
     },
     [getAllUserCreatedPosts.rejected]: (state, action) => {

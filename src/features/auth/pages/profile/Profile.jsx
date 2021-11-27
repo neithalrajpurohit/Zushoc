@@ -1,6 +1,8 @@
-import { useEffect ,useParams} from "react";
+import { useEffect } from "react";
+import { useParams} from "react-router";
 import { useSelector,useDispatch} from "react-redux";
 import { getAllUserCreatedPosts } from "../../../posts/postSlice";
+import { UserPosts } from "./UserPosts";
 
 
 export const Profile = () =>{
@@ -23,20 +25,20 @@ export const Profile = () =>{
                 <p>{userProfile?.name}</p>
             </div>
             <div>
-                <p>{userProfile?.username}</p>
+                <p>@{userProfile?.username}</p>
             </div>
             <div>
                 <p>{userProfile?.bio}</p>
             </div>
             <div>
-                <p>{userProfile?.followingList?.length}</p>
-                <p>FollowingList</p>
+                <p>{userProfile?.followersList?.length}</p>
+                <p>Followers</p>
             </div>
             <div>
-                <p>{userProfile?.followersList?.length}</p>
-                <p>FollwersList</p>
+                <p>{userProfile?.followingList?.length}</p>
+                <p>Following</p>
             </div>
-
+            <UserPosts/>
         </div>
     )
 }
