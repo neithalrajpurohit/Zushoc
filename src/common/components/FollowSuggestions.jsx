@@ -13,9 +13,8 @@ export const FollowSuggestions = () => {
 
     useEffect(()=>{
         if(loading === false){
-            dispatch(getFollowSuggestions(token));
-        } // eslint-disable-next-line;
-     }, [dispatch, token]
+            dispatch(getFollowSuggestions(token));  // eslint-disable-next-line
+        }}, [dispatch, token]
     );
     
     return(
@@ -32,16 +31,15 @@ export const FollowSuggestions = () => {
                                 onClick={()=>{navigate(`/follow/${user.username}`)}}>
                                     <ul>
                                        <div>
-                                           <li>
+                                           <li className="sugg-username" >
                                                {user?.name}
                                            </li>
-                                         <li>
+                                         <li className="sugg-username" >
                                              @{user?.username}
                                          </li>
                                         </div> 
-                                        <li>
-                                            <img src = {user?.profileURL} alt = "profile url"/>
-                                        </li>
+
+                                            <img className="sugg-img" src = {user?.profileURL} alt = "profile url"/>
                                     </ul>
                                 </div>
                             )

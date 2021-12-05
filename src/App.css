@@ -1,6 +1,5 @@
 .navg {
   background-color: #eff6ff;
-  padding-left: 1rem;
   display: flex;
   align-items: center;
 }
@@ -8,6 +7,16 @@
   text-decoration: none;
   padding-right: 3px;
   color: rgb(0, 134, 187);
+  cursor: pointer;
+  display: inline !important;
+  padding-left: 1rem;
+}
+.logOut {
+  background-color: #3b82f6;
+  border-radius: 5px;
+  font-size: 17px;
+  cursor: pointer;
+  transform: translate(158px, 10px);
 }
 .links-container {
   margin-left: 65rem;
@@ -145,4 +154,160 @@
   border-radius: 3px;
   border: 1px solid #f87171;
   color: #eff6ff;
+}
+.profile-img {
+  margin-top: 9rem;
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  transform: translate(-75px, 1px);
+}
+.userDetails-bio {
+  text-align: center;
+  font-weight: 500;
+  transform: translate(-6px, -4rem);
+}
+.userDetails-follow {
+  text-align: center;
+  font-weight: 500;
+  transform: translate(-110px, -4rem);
+}
+.userDetails-following {
+  text-align: center;
+  font-weight: 500;
+  transform: translate(120px, -8rem);
+}
+.userName {
+  text-align: center;
+  opacity: 1;
+  color: rgba(156, 163, 175);
+  transform: translate(1rem, -5rem);
+}
+.userDetails-name {
+  text-align: center;
+  font-weight: 600;
+  transform: translate(1px, -4rem);
+}
+.post {
+  height: 3rem;
+  width: 3rem;
+  font-weight: 500;
+  font-size: large;
+  transform: translate(-12rem, -4rem);
+  margin-top: 2rem;
+}
+.post-userName {
+  font-weight: 800;
+  font-size: large;
+  transform: translate(-8rem, 5px);
+}
+.post-name {
+  font-weight: 500;
+  transform: translate(-9rem, -7rem);
+}
+.card {
+  align-items: center;
+  text-align: center;
+  box-shadow: 5px 5px 25px 7px rgb(0 0 0 / 25%),
+    -5px -5px 30px 7px rgb(0 0 0 / 22%);
+  width: 24rem;
+  height: 34rem;
+  padding: 10px 70px;
+  margin-left: 25rem;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+}
+.post-image {
+  height: 20rem;
+  width: 20rem;
+  transform: translate(1rem, -5rem);
+  padding-left: 1px;
+}
+.post-content {
+  transform: translate(1rem, -5rem);
+}
+.posts-btn {
+  height: 30px;
+  width: 100px;
+  transform: translate(1rem, -5rem);
+  background-color: dodgerblue;
+  border: none;
+  outline: none;
+  line-height: 25px;
+  color: floralwhite;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.pro-image {
+  height: 20rem;
+  width: 20rem;
+  transform: translate(1rem, 45px);
+  padding-left: 1px;
+}
+.cards {
+  align-items: center;
+  text-align: center;
+  box-shadow: 5px 5px 25px 7px rgb(0 0 0 / 25%),
+    -5px -5px 30px 7px rgb(0 0 0 / 22%);
+  width: 24rem;
+  height: 34rem;
+  padding: 10px 70px;
+  margin-left: 25rem;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+}
+.pro-content {
+  transform: translate(1rem, 55px);
+}
+.sugg-img {
+  height: 10rem;
+  width: 10rem;
+  transform: translate(1rem, 1px);
+  padding-left: 1px;
+}
+.sugg-username {
+  font-weight: 800;
+  font-size: large;
+  transform: translate(15rem, 6rem);
+}
+.user-profile {
+  margin-top: 9rem;
+  height: 5rem;
+  width: 5rem;
+  cursor: pointer;
+  transform: translate(40rem, 1px);
+}
+.user-name {
+  text-align: center;
+  transform: translate(1rem, -5rem);
+}
+.user-username {
+  text-align: center;
+  opacity: 1;
+  color: rgba(156, 163, 175);
+  transform: translate(2rem, -5rem);
+}
+.user-bio {
+  text-align: center;
+  font-weight: 500;
+  transform: translate(-2rem, -3rem);
+}
+.user-follow {
+  text-align: center;
+  font-weight: 500;
+  transform: translate(-110px, -2rem);
+}
+.user-following {
+  text-align: center;
+  font-weight: 500;
+  transform: translate(50px, -4.2rem);
+}
+.btn {
+  height: 30px;
+  width: 100px;
+  transform: translate(42rem, 5rem);
+  border: none;
+  outline: none;
+  line-height: 25px;
+  border-radius: 2px;
 }

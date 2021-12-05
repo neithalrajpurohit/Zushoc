@@ -57,7 +57,7 @@ export const getFeed = createAsyncThunk("post/getFeed", async ({ token }) => {
       }
     );
 
-    return response.data.res;
+    return response.data.response;
   } catch (err) {
     console.log({ err });
   }
@@ -67,10 +67,11 @@ export const likePost = createAsyncThunk(
   "post/likePost",
   async ({ postId, userId }) => {
     try {
-      let response = await axios.post(
-        `https://zushoc-backend.neithalrajpuroh.repl.co/post/${postId}`,
+      let response = await axios.put(
+        `https://zushoc-backend.neithalrajpuroh.repl.co/post/like/${postId}`,
         { userId }
       );
+
       return response.data.post;
     } catch (err) {
       console.log(err);
@@ -82,9 +83,10 @@ export const unlikePost = createAsyncThunk(
   async ({ postId, userId }) => {
     try {
       let response = await axios.post(
-        `https://zushoc-backend.neithalrajpuroh.repl.co/post/${postId}`,
+        `https://zushoc-backend.neithalrajpuroh.repl.co/post/unlike/${postId}`,
         { userId }
       );
+
       return response.data.post;
     } catch (err) {
       console.log(err);
@@ -135,12 +137,23 @@ export const postSlice = createSlice({
     },
     [getFeed.fulfilled]: (state, action) => {
       state.postLoading = false;
-
       state.feedPost = action.payload;
     },
     [getFeed.rejected]: (state, action) => {
       state.isError = true;
       state.errorMessage = "cant get posts";
+    },
+    [likePost.fulfilled]: (state, action) => {
+      let post = state.feedPost.find(
+        (likedPost) => likedPost._id === action.payload._id
+      );
+      post.likedBy = action.payload?.likedBy;
+    },
+    [unlikePost.fulfilled]: (state, action) => {
+      let post = state.feedPost.find(
+        (unlikedPost) => unlikedPost._id === action.payload._id
+      );
+      post.likedBy = action.payload?.likedBy;
     },
   },
 });

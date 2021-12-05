@@ -18,25 +18,25 @@ export const Profile = () =>{
         
     return(
         <div>
-            <div>
-                <img src = {userProfile?.profileURL } alt = "profile" />
+            <div style={{textAlign:"center"}}>
+                <img className = "profile-img" src = {userProfile?.profileURL } alt = "profile" />
             </div>
             <div>
-                <p>{userProfile?.name}</p>
+                <p className="userDetails-name">{userProfile?.name}</p>
             </div>
             <div>
-                <p>@{userProfile?.username}</p>
+                <p className="userName">@{userProfile?.username}</p>
             </div>
             <div>
-                <p>{userProfile?.bio}</p>
+                <p className="userDetails-bio">{userProfile?.bio}</p>
             </div>
             <div>
-                <p>{userProfile?.followersList?.length}</p>
-                <p>Followers</p>
+                <p className="userDetails-follow">{userProfile?.followersList?.length}</p>
+                <p className="userDetails-follow">Followers</p>
             </div>
             <div>
-                <p>{userProfile?.followingList?.length}</p>
-                <p>Following</p>
+                <p className="userDetails-following">{userProfile?.followingList?.length}</p>
+                <p className="userDetails-following">Following</p>
             </div>
             <UserPosts/>
         </div>

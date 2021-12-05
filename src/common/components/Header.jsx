@@ -17,7 +17,7 @@ export const Header=()=>{
                     <Link className="header-cnt" to="/">Home</Link>
                     <div className="header-cnt" to onClick={()=>navigate(`/profile/${username}`)}>Profile</div>
                     <Link className="header-cnt" to ="/followsuggestions">FollowSuggestions</Link>
-                    <button className="header-cnt" onClick={()=>{ dispatch(logOutUser()) ; navigate("/login")} }>Logout</button>
+                    <button className="logOut" onClick={()=>{ dispatch(logOutUser()) ; navigate("/login")} }>Logout</button>
                     
                 </div>     
             </nav>

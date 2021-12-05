@@ -15,11 +15,11 @@ export const UserPosts = () =>{
                 <div>
                      {postList?.map((post)=>{
                         return(
-                            <div key={post._id}>
+                            <div className="cards" key={post._id}>
                             <div>
-                                <img src = {post?.postImage} alt = "post-img"/>
-                            <p>{post?.content}</p>
-                            <p>{post?.likedBy?.length}</p>
+                                <img className="pro-image" src = {post?.postImage} alt = "post-img"/>
+                            <p className="pro-content">{post?.content}</p>
+                            <p className="pro-content">{post?.likedBy?.length} likes</p>
                             </div>
                             </div>
                         );

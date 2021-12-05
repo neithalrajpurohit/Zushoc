@@ -49,7 +49,7 @@ export const Post = ({setCreatePost,setShowPost}) =>{
                 >X</button>
                 <button className="center post-component" onClick={()=>postOnClick()}  >Post</button>
                 <button className="center add-component" onClick={()=>uploadHandler()}>+</button>
-                <img src = {imageURL} alt ="images"/>
+                <img style={{paddingRight:"10px"}} src = {imageURL} alt ="images"/>
                 <p className ="text-center">{content.length}/100 </p>
             </div>
         </div>

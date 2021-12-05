@@ -17,7 +17,6 @@ export const FollowUserProfile = () =>{
       },[dispatch,token,username]);
 
       const handleFollow = (e) => {
-
         e.preventDefault();
         dispatch(addFollowUser({ followUserId, userId }));
       };
@@ -29,20 +28,20 @@ export const FollowUserProfile = () =>{
 
     return(
         <div>
-            <img src = {profile?.profileURL} alt = "Profile"/>
-            <div>{profile?.name}</div>
-            <div>@{profile?.username}</div>
-            <div>
+            <img className="user-profile" src = {profile?.profileURL} alt = "Profile"/>
+            <div className="user-name">{profile?.name}</div>
+            <div className="user-username">@{profile?.username}</div>
+            <div className="btn">
                 {profile?.followersList?.includes(userId)?(
                     <button text ="unfollow" onClick={(e)=>handleUnFollow(e)}>UnFollow</button>)
                     :(<button text ="follow" onClick={(e)=>handleFollow(e)}>Follow</button>)
                 }
             </div>
-            <div>{profile?.bio}</div>
-            <div>{profile?.followersList?.length}</div>
-            <div>Followers</div>
-            <div>{profile?.followingList?.length}</div>
-            <div>Following</div>
+            <div className="user-bio">{profile?.bio}</div>
+            <div className="user-follow">{profile?.followersList?.length}</div>
+            <div className="user-follow">Followers</div>
+            <div className="user-following">{profile?.followingList?.length}</div>
+            <div className="user-following">Following</div>
 
         </div>
     )
